@@ -3,12 +3,9 @@ package com.example.proiect_java_3;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +13,8 @@ public class CatalogGadgetApp extends Application {
 
     private static final String FILE_PATH = "gadgeturi.ser"; // Folosim fișierul nou
     private List<Gadget> gadgeturi;
+    private Stage primaryStage;
+    private Scene mainScene;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,15 +22,71 @@ public class CatalogGadgetApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
         primaryStage.setTitle("MMAK Industry SA");
 
         gadgeturi = loadInitialGadgets(); // Încărcăm gadgeturile din fișierul nou
 
+        // Creăm bara de meniu
+        MenuBar menuBar = new MenuBar();
+
+        // Meniul Setări
+        Menu settingsMenu = new Menu("Setări");
+
+        // Adăugăm opțiunile de setări
+        MenuItem accountInfoMenuItem = new MenuItem("Informații cont");
+        accountInfoMenuItem.setOnAction(e -> openAccountInfo());
+
+        MenuItem addressesMenuItem = new MenuItem("Adrese");
+        addressesMenuItem.setOnAction(e -> openAddresses());
+
+        MenuItem ordersMenuItem = new MenuItem("Comenzile mele");
+        ordersMenuItem.setOnAction(e -> openOrders());
+
+        MenuItem preferredStoreMenuItem = new MenuItem("Magazin preferat");
+        preferredStoreMenuItem.setOnAction(e -> openPreferredStore());
+
+        MenuItem giftCardsMenuItem = new MenuItem("Carduri cadou");
+        giftCardsMenuItem.setOnAction(e -> openGiftCards());
+
+        MenuItem returnsMenuItem = new MenuItem("Retur produse");
+        returnsMenuItem.setOnAction(e -> openReturns());
+
+        MenuItem serviceMenuItem = new MenuItem("Service produse");
+        serviceMenuItem.setOnAction(e -> openService());
+
+        MenuItem reviewsMenuItem = new MenuItem("Recenziile mele");
+        reviewsMenuItem.setOnAction(e -> openReviewsMenu());
+
+        MenuItem supportMenuItem = new MenuItem("Suport clienți");
+        supportMenuItem.setOnAction(e -> openSupport());
+
+        MenuItem securityMenuItem = new MenuItem("Securitate");
+        securityMenuItem.setOnAction(e -> openSecurity());
+
+        MenuItem contactMenuItem = new MenuItem("Contact");
+        contactMenuItem.setOnAction(e -> openContact());
+
+        MenuItem financesMenuItem = new MenuItem("Finanțe");
+        financesMenuItem.setOnAction(e -> openFinances());
+
+        // Adăugăm toate opțiunile în meniul de setări
+        settingsMenu.getItems().addAll(
+                accountInfoMenuItem, addressesMenuItem, ordersMenuItem, preferredStoreMenuItem,
+                giftCardsMenuItem, returnsMenuItem, serviceMenuItem, reviewsMenuItem,
+                supportMenuItem, securityMenuItem, contactMenuItem, financesMenuItem
+        );
+
+        // Adăugăm meniul în bara de meniu
+        menuBar.getMenus().add(settingsMenu);
+
+        // Creăm o listă de gadgeturi
         ListView<String> gadgetList = new ListView<>();
         for (Gadget gadget : gadgeturi) {
             gadgetList.getItems().add(gadget.toString());
         }
 
+        // Layout pentru detalii
         VBox detailsBox = new VBox(10);
         detailsBox.setStyle("-fx-padding: 10; -fx-border-color: red; -fx-border-width: 1;");
 
@@ -112,11 +167,11 @@ public class CatalogGadgetApp extends Application {
                 deleteButton
         );
 
-        VBox mainLayout = new VBox(10, gadgetList, detailsBox);
+        VBox mainLayout = new VBox(10, menuBar, gadgetList, detailsBox);
         mainLayout.setStyle("-fx-padding: 20;");
 
-        Scene scene = new Scene(mainLayout, 600, 600);
-        primaryStage.setScene(scene);
+        mainScene = new Scene(mainLayout, 600, 600); // Salvează scena principală
+        primaryStage.setScene(mainScene);
         primaryStage.show();
     }
 
@@ -149,5 +204,90 @@ public class CatalogGadgetApp extends Application {
             default:
                 return new Gadget();
         }
+    }
+
+    // Metodă pentru deschiderea ferestrei de recenzii
+    private void openReviewsMenu() {
+        // Creăm un StackPane pentru a suprapune fereastra de recenzii peste fereastra principală
+        StackPane overlay = new StackPane();
+        overlay.setStyle("-fx-background-color: rgba(0, 0, 0, 0.5);"); // Fundal semitransparent
+
+        // Creăm un SplitPane pentru a împărți zona în 2 părți
+        SplitPane splitPane = new SplitPane();
+
+        // Secțiunea pentru scriere recenzie
+        VBox writeReviewBox = new VBox(10);
+        TextArea reviewTextArea = new TextArea();
+        reviewTextArea.setPromptText("Scrie o recenzie...");
+        Button submitReviewButton = new Button("Trimite Recenzie");
+        writeReviewBox.getChildren().addAll(new Label("Scrie Recenzie"), reviewTextArea, submitReviewButton);
+
+        // Secțiunea pentru recenzii publicate
+        VBox publishedReviewsBox = new VBox(10);
+        ListView<String> publishedReviewsList = new ListView<>();
+        publishedReviewsList.getItems().addAll("Recenzie 1", "Recenzie 2", "Recenzie 3");
+        publishedReviewsBox.getChildren().addAll(new Label("Recenzii Publicate"), publishedReviewsList);
+
+        // Adăugăm secțiunile în SplitPane
+        splitPane.getItems().addAll(writeReviewBox, publishedReviewsBox);
+
+        // Adăugăm butonul de închidere
+        Button closeButton = new Button("Închide");
+        closeButton.setOnAction(event -> {
+            // Închidem meniul de recenzii și revenim la scena principală
+            primaryStage.setScene(mainScene); // Setează scena principală
+        });
+
+        // Adăugăm butonul de închidere în overlay
+        overlay.getChildren().addAll(splitPane, closeButton);
+
+        // Creăm scena pentru recenzii
+        Scene reviewsScene = new Scene(overlay, 600, 400);
+        primaryStage.setScene(reviewsScene); // Schimbăm scena pentru a deschide meniul de recenzii
+    }
+
+    // Funcții pentru a deschide fiecare setare (exemplu pentru fiecare opțiune)
+    private void openAccountInfo() {
+        System.out.println("Informații cont selectat.");
+    }
+
+    private void openAddresses() {
+        System.out.println("Adrese selectat.");
+    }
+
+    private void openOrders() {
+        System.out.println("Comenzile mele selectat.");
+    }
+
+    private void openPreferredStore() {
+        System.out.println("Magazin preferat selectat.");
+    }
+
+    private void openGiftCards() {
+        System.out.println("Carduri cadou selectat.");
+    }
+
+    private void openReturns() {
+        System.out.println("Retur produse selectat.");
+    }
+
+    private void openService() {
+        System.out.println("Service produse selectat.");
+    }
+
+    private void openSupport() {
+        System.out.println("Suport clienți selectat.");
+    }
+
+    private void openSecurity() {
+        System.out.println("Securitate selectat.");
+    }
+
+    private void openContact() {
+        System.out.println("Contact selectat.");
+    }
+
+    private void openFinances() {
+        System.out.println("Finanțe selectat.");
     }
 }
