@@ -1,7 +1,7 @@
 package com.example.proiect_java_3;
 
 public class Casti extends Gadget {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
     private String tipConectare;
     private boolean suntNoiseCancelling;
     private boolean suntWireless;

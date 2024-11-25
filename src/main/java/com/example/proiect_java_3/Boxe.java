@@ -1,6 +1,7 @@
 package com.example.proiect_java_3;
 
 public class Boxe extends Gadget {
+    private static final long serialVersionUID = 6534087835443L;
     private String tipConectare;
     private boolean areMicrofon;
     private int putere;
