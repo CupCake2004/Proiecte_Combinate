@@ -155,7 +155,7 @@ public class CatalogGadgetApp extends Application {
             case "Mini Cameră":
                 return new MiniCamera("MiniCamera Model", "Brand MiniCamera", 2024, 200.0, 4.0, 10, "Mini cameră compactă", "Wi-Fi", 5000, true);
             case "Portable Speakers":
-                return new PortableSpeakers("PortableSpeakers Model", "Brand PortableSpeakers", 2024,  120.0, 4.3, 40, "Boxe portabile cu Bluetooth", "Bluetooth", 1000, true);
+                return new PortableSpeakers("PortableSpeakers Model", "Brand PortableSpeakers", 2024,  120.0, 4.3, 40, "Boxe portabile cu Bluetooth",  1000, true);
             case "Reportofon":
                 return new Reportofon("Reportofon Model", "Brand Reportofon", 2024,  180.0, 4.7, 15, "Reportofon digital cu memorie", 100, true);
             case "Smart Alarm":

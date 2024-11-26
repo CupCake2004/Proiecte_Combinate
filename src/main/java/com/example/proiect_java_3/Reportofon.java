@@ -41,4 +41,20 @@ public class Reportofon extends Gadget {
     public void setVoiceActivation(boolean voiceActivation) {
         this.voiceActivation = voiceActivation;
     }
+
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description=" + getDescription() +
+                ", Memory=" + memory +
+                ", Voice Activation=" + voiceActivation +
+                '}';
+    }
 }

@@ -41,4 +41,21 @@ public class Boxe extends Gadget {
     public void setWireless(boolean wireless) {
         this.wireless = wireless;
     }
+
+    // Suprascrie metoda toString pentru afišarea detaliilor despre Boxe
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description='" + getDescription() + '\'' +
+                ", FieldOfView=" + type +
+                ", Wireless=" + wireless +
+                '}';
+    }
 }

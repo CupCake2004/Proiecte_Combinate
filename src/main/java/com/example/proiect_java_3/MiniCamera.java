@@ -53,4 +53,20 @@ public class MiniCamera extends Gadget {
     public void setMotionDetection(boolean motionDetection) {
         this.motionDetection = motionDetection;
     }
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description=" + getDescription() +
+                ", ConnectionType=" + connectionType  +
+                ", BatteryCapacity=" + batteryCapacity +
+                ", MotionDetection=" + motionDetection +
+                '}';
+    }
 }

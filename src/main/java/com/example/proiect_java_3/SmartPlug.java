@@ -41,4 +41,19 @@ public class SmartPlug extends Gadget {
     public void setEnergyMonitoring(boolean energyMonitoring) {
         this.energyMonitoring = energyMonitoring;
     }
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description=" + getDescription() +
+                ", Wattage=" + wattage +
+                ", EnergyMonitoring=" + energyMonitoring +
+                '}';
+    }
 }

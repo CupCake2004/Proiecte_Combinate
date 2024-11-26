@@ -12,7 +12,7 @@ public class PortableSpeakers extends Gadget {
     }
 
     // Constructor cu parametri
-    public PortableSpeakers(String model, String brand, int year , double price, double rating, int quantity, String description, String connectionType, int batteryLife, boolean waterproof) {
+    public PortableSpeakers(String model, String brand, int year , double price, double rating, int quantity, String description, int batteryLife, boolean waterproof) {
         super(model, brand, year
                 , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
         this.batteryLife = batteryLife;
@@ -41,5 +41,20 @@ public class PortableSpeakers extends Gadget {
 
     public void setWaterproof(boolean waterproof) {
         this.waterproof = waterproof;
+    }
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description=" + getDescription() +
+                ", BatteryLife=" +  batteryLife +
+                ", Waterproof=" + waterproof +
+                '}';
     }
 }

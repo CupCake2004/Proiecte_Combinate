@@ -41,4 +41,19 @@ public class SmartAlarm extends Gadget {
     public void setBatteryBackup(int batteryBackup) {
         this.batteryBackup = batteryBackup;
     }
+    @Override
+    public String toString() {
+        return "VRGoggles {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description=" + getDescription() +
+                ", SmartSensors=" + smartSensors +
+                ", BatteryBackup=" + batteryBackup +
+                '}';
+    }
 }

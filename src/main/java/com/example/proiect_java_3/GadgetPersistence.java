@@ -59,7 +59,7 @@ public class GadgetPersistence {
         // Instanțe de PortableSpeakers
         for (int i = 0; i < 10; i++) {
             sampleGadgets.add(new PortableSpeakers());  // Constructor fără parametri
-            sampleGadgets.add(new PortableSpeakers("PortableSpeakers Model " + i, "Brand PortableSpeakers", 2024,  120.0, 4.3, 40, "Boxe portabile cu Bluetooth", "Bluetooth", 1000, true));  // Constructor cu parametri
+            sampleGadgets.add(new PortableSpeakers("PortableSpeakers Model " + i, "Brand PortableSpeakers", 2024,  120.0, 4.3, 40, "Boxe portabile cu Bluetooth", 1000, true));  // Constructor cu parametri
             sampleGadgets.add(new PortableSpeakers(new PortableSpeakers()));  // Constructor de copiere
         }
 
