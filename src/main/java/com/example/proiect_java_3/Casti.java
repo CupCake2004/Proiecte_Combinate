@@ -1,46 +1,61 @@
 package com.example.proiect_java_3;
 
 public class Casti extends Gadget {
-    private static final long serialVersionUID = 2L;
-    private String tipConectare;
-    private boolean suntNoiseCancelling;
-    private boolean suntWireless;
+    private boolean noiseCancelling; // Anulează zgomotul de fundal
+    private boolean wireless; // Dacă sunt wireless sau nu
+
+    // Constructor fără parametri
+    public Casti() {
+        super(); // Apelează constructorul fără parametri al clasei părinte
+        this.noiseCancelling = false; // Valoare implicită pentru noiseCancelling
+        this.wireless = false; // Valoare implicită pentru wireless
+    }
 
     // Constructor cu parametri
-    public Casti(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, String tipConectare, boolean suntNoiseCancelling, boolean suntWireless) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.tipConectare = tipConectare;
-        this.suntNoiseCancelling = suntNoiseCancelling;
-        this.suntWireless = suntWireless;
+    public Casti(String model, String brand, int year , double price, double rating, int quantity, String description, boolean noiseCancelling, boolean wireless) {
+        super(model, brand, year , price, rating, quantity, description); // Apelează constructorul cu parametri al clasei părinte
+        this.noiseCancelling = noiseCancelling;
+        this.wireless = wireless;
     }
 
+    // Constructor de copiere
+    public Casti(Casti other) {
+        super(other); // Apelează constructorul de copiere al clasei părinte
+        this.noiseCancelling = other.noiseCancelling;
+        this.wireless = other.wireless;
+    }
+
+    // Gettere și settere pentru câmpuri
+    public boolean isNoiseCancelling() {
+        return noiseCancelling;
+    }
+
+    public void setNoiseCancelling(boolean noiseCancelling) {
+        this.noiseCancelling = noiseCancelling;
+    }
+
+    public boolean isWireless() {
+        return wireless;
+    }
+
+    public void setWireless(boolean wireless) {
+        this.wireless = wireless;
+    }
+
+    // Suprascriem metoda toString pentru afișarea detaliilor despre Casti
     @Override
     public String toString() {
-        return super.toString() + " [Tip Conectare=" + tipConectare + ", Noise Cancelling=" + suntNoiseCancelling + ", Wireless=" + suntWireless + "]";
-    }
-
-    // Getters și Setters
-    public String getTipConectare() {
-        return tipConectare;
-    }
-
-    public void setTipConectare(String tipConectare) {
-        this.tipConectare = tipConectare;
-    }
-
-    public boolean isSuntNoiseCancelling() {
-        return suntNoiseCancelling;
-    }
-
-    public void setSuntNoiseCancelling(boolean suntNoiseCancelling) {
-        this.suntNoiseCancelling = suntNoiseCancelling;
-    }
-
-    public boolean isSuntWireless() {
-        return suntWireless;
-    }
-
-    public void setSuntWireless(boolean suntWireless) {
-        this.suntWireless = suntWireless;
+        return "Casti {" +
+                "Model='" + getModel() + '\'' +
+                ", Brand='" + getBrand() + '\'' +
+                ", Year=" + getYearOfManufacture() +
+                " =" + isOn() +
+                ", Price=" + getPrice() +
+                ", Rating=" + getRating() +
+                ", Stock=" + getStock() +
+                ", Description='" + getDescription() + '\'' +
+                ", NoiseCancelling=" + noiseCancelling +
+                ", Wireless=" + wireless +
+                '}';
     }
 }

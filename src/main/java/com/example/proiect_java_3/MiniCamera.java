@@ -1,45 +1,56 @@
 package com.example.proiect_java_3;
 
 public class MiniCamera extends Gadget {
-    private String tipObiectiv;
-    private int capacitateBaterie; // în mAh
-    private boolean areWiFi;
+    private String connectionType;
+    private int batteryCapacity;
+    private boolean motionDetection;
+
+    // Constructor fără parametri
+    public MiniCamera() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.connectionType = "Wi-Fi";
+        this.batteryCapacity = 3000;  // mAh
+        this.motionDetection = false;
+    }
 
     // Constructor cu parametri
-    public MiniCamera(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, String tipObiectiv, int capacitateBaterie, boolean areWiFi) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.tipObiectiv = tipObiectiv;
-        this.capacitateBaterie = capacitateBaterie;
-        this.areWiFi = areWiFi;
+    public MiniCamera(String model, String brand, int year , double price, double rating, int quantity, String description, String connectionType, int batteryCapacity, boolean motionDetection) {
+        super(model, brand, year , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
+        this.connectionType = connectionType;
+        this.batteryCapacity = batteryCapacity;
+        this.motionDetection = motionDetection;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Tip Obiectiv=" + tipObiectiv + ", Capacitate Baterie=" + capacitateBaterie + " mAh, WiFi=" + areWiFi + "]";
+    // Constructor de copiere
+    public MiniCamera(MiniCamera other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.connectionType = other.connectionType;
+        this.batteryCapacity = other.batteryCapacity;
+        this.motionDetection = other.motionDetection;
     }
 
-    // Getters și Setters
-    public String getTipObiectiv() {
-        return tipObiectiv;
+    // Gettere și settere pentru câmpuri
+    public String getConnectionType() {
+        return connectionType;
     }
 
-    public void setTipObiectiv(String tipObiectiv) {
-        this.tipObiectiv = tipObiectiv;
+    public void setConnectionType(String connectionType) {
+        this.connectionType = connectionType;
     }
 
-    public int getCapacitateBaterie() {
-        return capacitateBaterie;
+    public int getBatteryCapacity() {
+        return batteryCapacity;
     }
 
-    public void setCapacitateBaterie(int capacitateBaterie) {
-        this.capacitateBaterie = capacitateBaterie;
+    public void setBatteryCapacity(int batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
     }
 
-    public boolean isAreWiFi() {
-        return areWiFi;
+    public boolean isMotionDetection() {
+        return motionDetection;
     }
 
-    public void setAreWiFi(boolean areWiFi) {
-        this.areWiFi = areWiFi;
+    public void setMotionDetection(boolean motionDetection) {
+        this.motionDetection = motionDetection;
     }
 }

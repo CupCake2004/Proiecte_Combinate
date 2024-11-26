@@ -30,7 +30,7 @@ public class Gadget implements Serializable {
     }
 
     // Constructor cu parametri
-    public Gadget(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description) {
+    public Gadget(String model, String brand, int yearOfManufacture, double price, double rating, int stock, String description) {
         this.id = nextId++;
         this.model = model;
         this.brand = brand;

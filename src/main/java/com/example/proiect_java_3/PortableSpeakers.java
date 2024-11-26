@@ -1,46 +1,45 @@
 package com.example.proiect_java_3;
 
 public class PortableSpeakers extends Gadget {
-    private static final long serialVersionUID = 7631423589531487624L;
-    private String tipConectare;
-    private int putere; // în wați
-    private boolean suntRezistenteLaApa;
+    private int batteryLife;
+    private boolean waterproof;
+
+    // Constructor fără parametri
+    public PortableSpeakers() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.batteryLife = 12;  // ore
+        this.waterproof = false;
+    }
 
     // Constructor cu parametri
-    public PortableSpeakers(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, String tipConectare, int putere, boolean suntRezistenteLaApa) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.tipConectare = tipConectare;
-        this.putere = putere;
-        this.suntRezistenteLaApa = suntRezistenteLaApa;
+    public PortableSpeakers(String model, String brand, int year , double price, double rating, int quantity, String description, String connectionType, int batteryLife, boolean waterproof) {
+        super(model, brand, year
+                , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
+        this.batteryLife = batteryLife;
+        this.waterproof = waterproof;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Tip Conectare=" + tipConectare + ", Putere=" + putere + " W, Rezistente la Apă=" + suntRezistenteLaApa + "]";
+    // Constructor de copiere
+    public PortableSpeakers(PortableSpeakers other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.batteryLife = other.batteryLife;
+        this.waterproof = other.waterproof;
     }
 
-    // Getters și Setters
-    public String getTipConectare() {
-        return tipConectare;
+    // Gettere și settere pentru câmpuri
+    public int getBatteryLife() {
+        return batteryLife;
     }
 
-    public void setTipConectare(String tipConectare) {
-        this.tipConectare = tipConectare;
+    public void setBatteryLife(int batteryLife) {
+        this.batteryLife = batteryLife;
     }
 
-    public int getPutere() {
-        return putere;
+    public boolean isWaterproof() {
+        return waterproof;
     }
 
-    public void setPutere(int putere) {
-        this.putere = putere;
-    }
-
-    public boolean isSuntRezistenteLaApa() {
-        return suntRezistenteLaApa;
-    }
-
-    public void setSuntRezistenteLaApa(boolean suntRezistenteLaApa) {
-        this.suntRezistenteLaApa = suntRezistenteLaApa;
+    public void setWaterproof(boolean waterproof) {
+        this.waterproof = waterproof;
     }
 }

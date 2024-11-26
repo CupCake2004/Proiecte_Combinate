@@ -1,36 +1,44 @@
 package com.example.proiect_java_3;
 
 public class SmartAlarm extends Gadget {
-    private static final long serialVersionUID = 3894923120413839387L;
-    private boolean esteCompatibilCuAplicatia;
-    private int durataBaterie; // în ore
+    private boolean smartSensors;
+    private int batteryBackup;
+
+    // Constructor fără parametri
+    public SmartAlarm() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.smartSensors = false;
+        this.batteryBackup = 24;  // ore
+    }
 
     // Constructor cu parametri
-    public SmartAlarm(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, boolean esteCompatibilCuAplicatia, int durataBaterie) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.esteCompatibilCuAplicatia = esteCompatibilCuAplicatia;
-        this.durataBaterie = durataBaterie;
+    public SmartAlarm(String model, String brand, int year , double price, double rating, int quantity, String description, boolean smartSensors, int batteryBackup) {
+        super(model, brand, year , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
+        this.smartSensors = smartSensors;
+        this.batteryBackup = batteryBackup;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Compatibil cu Aplicatia=" + esteCompatibilCuAplicatia + ", Durata Baterie=" + durataBaterie + " ore]";
+    // Constructor de copiere
+    public SmartAlarm(SmartAlarm other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.smartSensors = other.smartSensors;
+        this.batteryBackup = other.batteryBackup;
     }
 
-    // Getters și Setters
-    public boolean isEsteCompatibilCuAplicatia() {
-        return esteCompatibilCuAplicatia;
+    // Gettere și settere pentru câmpuri
+    public boolean isSmartSensors() {
+        return smartSensors;
     }
 
-    public void setEsteCompatibilCuAplicatia(boolean esteCompatibilCuAplicatia) {
-        this.esteCompatibilCuAplicatia = esteCompatibilCuAplicatia;
+    public void setSmartSensors(boolean smartSensors) {
+        this.smartSensors = smartSensors;
     }
 
-    public int getDurataBaterie() {
-        return durataBaterie;
+    public int getBatteryBackup() {
+        return batteryBackup;
     }
 
-    public void setDurataBaterie(int durataBaterie) {
-        this.durataBaterie = durataBaterie;
+    public void setBatteryBackup(int batteryBackup) {
+        this.batteryBackup = batteryBackup;
     }
 }

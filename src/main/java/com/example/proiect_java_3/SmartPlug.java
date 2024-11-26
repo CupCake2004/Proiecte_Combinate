@@ -1,36 +1,44 @@
 package com.example.proiect_java_3;
 
 public class SmartPlug extends Gadget {
-    private static final long serialVersionUID = 7619238194839204832L;
-    private int capacitateMaxima; // în wați
-    private boolean areMonitorizareConsum;
+    private int wattage;
+    private boolean energyMonitoring;
+
+    // Constructor fără parametri
+    public SmartPlug() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.wattage = 100;  // W
+        this.energyMonitoring = false;
+    }
 
     // Constructor cu parametri
-    public SmartPlug(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, int capacitateMaxima, boolean areMonitorizareConsum) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.capacitateMaxima = capacitateMaxima;
-        this.areMonitorizareConsum = areMonitorizareConsum;
+    public SmartPlug(String model, String brand, int year , double price, double rating, int quantity, String description, int wattage, boolean energyMonitoring) {
+        super(model, brand, year , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
+        this.wattage = wattage;
+        this.energyMonitoring = energyMonitoring;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Capacitate Maxima=" + capacitateMaxima + " W, Monitorizare Consum=" + areMonitorizareConsum + "]";
+    // Constructor de copiere
+    public SmartPlug(SmartPlug other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.wattage = other.wattage;
+        this.energyMonitoring = other.energyMonitoring;
     }
 
-    // Getters și Setters
-    public int getCapacitateMaxima() {
-        return capacitateMaxima;
+    // Gettere și settere pentru câmpuri
+    public int getWattage() {
+        return wattage;
     }
 
-    public void setCapacitateMaxima(int capacitateMaxima) {
-        this.capacitateMaxima = capacitateMaxima;
+    public void setWattage(int wattage) {
+        this.wattage = wattage;
     }
 
-    public boolean isAreMonitorizareConsum() {
-        return areMonitorizareConsum;
+    public boolean isEnergyMonitoring() {
+        return energyMonitoring;
     }
 
-    public void setAreMonitorizareConsum(boolean areMonitorizareConsum) {
-        this.areMonitorizareConsum = areMonitorizareConsum;
+    public void setEnergyMonitoring(boolean energyMonitoring) {
+        this.energyMonitoring = energyMonitoring;
     }
 }

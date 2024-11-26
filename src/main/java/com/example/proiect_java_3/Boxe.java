@@ -1,66 +1,44 @@
 package com.example.proiect_java_3;
 
 public class Boxe extends Gadget {
-    private static final long serialVersionUID = 6534087835443L;
-    private String tipConectare;
-    private boolean areMicrofon;
-    private int putere;
-    private boolean suntRezistenteLaApa;
-    private boolean suntWireless;
+    private String type;
+    private boolean wireless;
+
+    // Constructor fără parametri
+    public Boxe() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.type = "Boxe standard";
+        this.wireless = false;
+    }
 
     // Constructor cu parametri
-    public Boxe(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, String tipConectare, boolean areMicrofon, int putere, boolean suntRezistenteLaApa, boolean suntWireless) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.tipConectare = tipConectare;
-        this.areMicrofon = areMicrofon;
-        this.putere = putere;
-        this.suntRezistenteLaApa = suntRezistenteLaApa;
-        this.suntWireless = suntWireless;
+    public Boxe(String model, String brand, int year , double price, double rating, int quantity, String description, String type, boolean wireless) {
+        super(model, brand, year , price, rating, quantity, description); // Apelează constructorul cu parametri al clasei părinte
+        this.type = type;
+        this.wireless = wireless;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Tip Conectare=" + tipConectare + ", Are Microfon=" + areMicrofon + ", Putere=" + putere + ", Rezistente la Apa=" + suntRezistenteLaApa + ", Wireless=" + suntWireless + "]";
+    // Constructor de copiere
+    public Boxe(Boxe other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.type = other.type;
+        this.wireless = other.wireless;
     }
 
-    // Getters și Setters
-    public String getTipConectare() {
-        return tipConectare;
+    // Gettere și Settere pentru tip și wireless
+    public String getType() {
+        return type;
     }
 
-    public void setTipConectare(String tipConectare) {
-        this.tipConectare = tipConectare;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public boolean isAreMicrofon() {
-        return areMicrofon;
+    public boolean isWireless() {
+        return wireless;
     }
 
-    public void setAreMicrofon(boolean areMicrofon) {
-        this.areMicrofon = areMicrofon;
-    }
-
-    public int getPutere() {
-        return putere;
-    }
-
-    public void setPutere(int putere) {
-        this.putere = putere;
-    }
-
-    public boolean isSuntRezistenteLaApa() {
-        return suntRezistenteLaApa;
-    }
-
-    public void setSuntRezistenteLaApa(boolean suntRezistenteLaApa) {
-        this.suntRezistenteLaApa = suntRezistenteLaApa;
-    }
-
-    public boolean isSuntWireless() {
-        return suntWireless;
-    }
-
-    public void setSuntWireless(boolean suntWireless) {
-        this.suntWireless = suntWireless;
+    public void setWireless(boolean wireless) {
+        this.wireless = wireless;
     }
 }

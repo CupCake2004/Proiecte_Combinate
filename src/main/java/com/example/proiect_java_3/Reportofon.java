@@ -1,36 +1,44 @@
 package com.example.proiect_java_3;
 
 public class Reportofon extends Gadget {
-    private static final long serialVersionUID = 983510295838478535L;
-    private int capacitateMemorie; // în GB
-    private boolean areReducereZgomot;
+    private int memory;
+    private boolean voiceActivation;
+
+    // Constructor fără parametri
+    public Reportofon() {
+        super();  // Apelează constructorul fără parametri al clasei părinte
+        this.memory = 8;  // GB
+        this.voiceActivation = false;
+    }
 
     // Constructor cu parametri
-    public Reportofon(String model, String brand, int yearOfManufacture, boolean isOn, double price, double rating, int stock, String description, int capacitateMemorie, boolean areReducereZgomot) {
-        super(model, brand, yearOfManufacture, isOn, price, rating, stock, description); // Apelăm constructorul clasei părinte
-        this.capacitateMemorie = capacitateMemorie;
-        this.areReducereZgomot = areReducereZgomot;
+    public Reportofon(String model, String brand, int year , double price, double rating, int quantity, String description, int memory, boolean voiceActivation) {
+        super(model, brand, year , price, rating, quantity, description);  // Apelează constructorul cu parametri al clasei părinte
+        this.memory = memory;
+        this.voiceActivation = voiceActivation;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " [Memorie=" + capacitateMemorie + " GB, Reducere Zgomot=" + areReducereZgomot + "]";
+    // Constructor de copiere
+    public Reportofon(Reportofon other) {
+        super(other);  // Apelează constructorul de copiere al clasei părinte
+        this.memory = other.memory;
+        this.voiceActivation = other.voiceActivation;
     }
 
-    // Getters și Setters
-    public int getCapacitateMemorie() {
-        return capacitateMemorie;
+    // Gettere și settere pentru câmpuri
+    public int getMemory() {
+        return memory;
     }
 
-    public void setCapacitateMemorie(int capacitateMemorie) {
-        this.capacitateMemorie = capacitateMemorie;
+    public void setMemory(int memory) {
+        this.memory = memory;
     }
 
-    public boolean isAreReducereZgomot() {
-        return areReducereZgomot;
+    public boolean isVoiceActivation() {
+        return voiceActivation;
     }
 
-    public void setAreReducereZgomot(boolean areReducereZgomot) {
-        this.areReducereZgomot = areReducereZgomot;
+    public void setVoiceActivation(boolean voiceActivation) {
+        this.voiceActivation = voiceActivation;
     }
 }
