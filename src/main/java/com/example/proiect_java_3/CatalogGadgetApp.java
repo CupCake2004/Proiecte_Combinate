@@ -5,11 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogGadgetApp extends Application {
@@ -38,7 +33,6 @@ public class CatalogGadgetApp extends Application {
         TextField ratingField = new TextField();
         TextField stockField = new TextField();
         TextField descriptionField = new TextField();
-        TextField connectionTypeField = new TextField();
         TextField modelField = new TextField();
         TextField brandField = new TextField();
         TextField yearField = new TextField();
