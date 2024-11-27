@@ -96,7 +96,7 @@ public class VectoriMihai {
         // Filtrare:
         System.out.println("\n[FILTRARE] Gadgeturi:");
             for (int i = 0; i < listaGadget.size(); i++) {
-            if (listaGadget.get(i).getPrice() > 400.0 && listaGadget.get(i).getRating() > 4.5) {
+            if (listaGadget.get(i).getYearOfManufacture()>2021 && listaGadget.get(i).getRating() > 4.5) {
                 System.out.println(listaGadget.get(i));
             }
         }
