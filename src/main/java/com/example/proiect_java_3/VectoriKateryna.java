@@ -100,9 +100,9 @@ public class VectoriKateryna {
 
         // Filtrare:
         System.out.println("\n[FILTRARE] Gadgeturi:");
-        for (Gadget gadget : listaGadget) {
-            if (gadget.getPrice() > 100.0 && gadget.getRating() > 3.5) {
-                System.out.println(gadget);
+        for (int i = 0; i < listaGadget.size(); i++) {
+            if (listaGadget.get(i).getPrice() > 100.0 && listaGadget.get(i).getRating() > 3.5) {
+                System.out.println(listaGadget.get(i));
             }
         }
 
