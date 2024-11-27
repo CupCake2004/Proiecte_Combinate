@@ -43,11 +43,10 @@ public class SmartAlarm extends Gadget {
     }
     @Override
     public String toString() {
-        return "VRGoggles {" +
+        return "SmartAlarm {" +
                 "Model='" + getModel() + '\'' +
                 ", Brand='" + getBrand() + '\'' +
                 ", Year=" + getYearOfManufacture() +
-                " =" + isOn() +
                 ", Price=" + getPrice() +
                 ", Rating=" + getRating() +
                 ", Stock=" + getStock() +

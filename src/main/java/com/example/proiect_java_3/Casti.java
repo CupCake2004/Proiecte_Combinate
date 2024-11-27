@@ -49,7 +49,6 @@ public class Casti extends Gadget {
                 "Model='" + getModel() + '\'' +
                 ", Brand='" + getBrand() + '\'' +
                 ", Year=" + getYearOfManufacture() +
-                " =" + isOn() +
                 ", Price=" + getPrice() +
                 ", Rating=" + getRating() +
                 ", Stock=" + getStock() +

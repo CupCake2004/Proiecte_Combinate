@@ -36,59 +36,51 @@ public class GadgetPersistence {
         // Generăm gadgeturi de test folosind constructorii diferiți
 
         // Instanțe de Boxe
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new Boxe());  // Constructor fără parametri
-            sampleGadgets.add(new Boxe("Boxe Model " + i, "Brand Boxe", 2024,  150.0, 4.5, 50, "Boxe de înaltă calitate", "Bluetooth", true));  // Constructor cu parametri
-            sampleGadgets.add(new Boxe(new Boxe()));  // Constructor de copiere
+        for (int i = 1; i <=10; i++) {
+            sampleGadgets.add(new Boxe("Boxe Model " + i, "Brand Boxe " + i, 2024 - i,  150.0 + i*10, 4.5 - i/10.0, 50 + 5*i, "Boxe de înaltă calitate", "Bluetooth", true));  // Constructor cu parametri
+
         }
 
         // Instanțe de Casti
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new Casti());  // Constructor fără parametri
-            sampleGadgets.add(new Casti("Căști Model " + i, "Brand Căști", 2024,  100.0, 4.2, 30, "Căști pentru sport", true, true));  // Constructor cu parametri
-            sampleGadgets.add(new Casti(new Casti()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new Casti("Căști Model " + i, "Brand Căști " + i, 2024 - i,  100.0 + i*10, 4.2 - i/10.0, 30 + 5*i, "Căști pentru sport", true, true));  // Constructor cu parametri
+
         }
 
         // Instanțe de MiniCamera
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new MiniCamera());  // Constructor fără parametri
-            sampleGadgets.add(new MiniCamera("MiniCamera Model " + i, "Brand MiniCamera", 2024,  200.0, 4.0, 10, "Mini cameră compactă", "Wi-Fi", 5000, true));  // Constructor cu parametri
-            sampleGadgets.add(new MiniCamera(new MiniCamera()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new MiniCamera("MiniCamera Model " + i, "Brand MiniCamera " + i, 2024 - i,  200.0 + i*10, 4.0 - i/10.0, 10 + 5*i, "Mini cameră compactă", "Wi-Fi", 5000, true));  // Constructor cu parametri
+
         }
 
         // Instanțe de PortableSpeakers
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new PortableSpeakers());  // Constructor fără parametri
-            sampleGadgets.add(new PortableSpeakers("PortableSpeakers Model " + i, "Brand PortableSpeakers", 2024,  120.0, 4.3, 40, "Boxe portabile cu Bluetooth", 1000, true));  // Constructor cu parametri
-            sampleGadgets.add(new PortableSpeakers(new PortableSpeakers()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new PortableSpeakers("PortableSpeakers Model " + i, "Brand PortableSpeakers " + i, 2024 - i,  120.0 + i*10, 4.3 - i/10.0, 40 + 5*i, "Boxe portabile cu Bluetooth", 1000, true));  // Constructor cu parametri
+
         }
 
         // Instanțe de Reportofon
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new Reportofon());  // Constructor fără parametri
-            sampleGadgets.add(new Reportofon("Reportofon Model " + i, "Brand Reportofon", 2024,  180.0, 4.7, 15, "Reportofon digital cu memorie", 100, true));  // Constructor cu parametri
-            sampleGadgets.add(new Reportofon(new Reportofon()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new Reportofon("Reportofon Model " + i, "Brand Reportofon " + i, 2024 - i,  180.0 + i*10, 4.7 - i/10.0, 15 + 5*i, "Reportofon digital cu memorie", 100, true));  // Constructor cu parametri
+
         }
 
         // Instanțe de SmartAlarm
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new SmartAlarm());  // Constructor fără parametri
-            sampleGadgets.add(new SmartAlarm("SmartAlarm Model " + i, "Brand SmartAlarm", 2024,  250.0, 4.8, 20, "Alarmă inteligentă cu senzori", true, 12));  // Constructor cu parametri
-            sampleGadgets.add(new SmartAlarm(new SmartAlarm()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new SmartAlarm("SmartAlarm Model " + i, "Brand SmartAlarm " + i, 2024 - i,  250.0 + i*10, 4.8 - i/10.0, 20 + 5*i, "Alarmă inteligentă cu senzori", true, 12));  // Constructor cu parametri
+
         }
 
         // Instanțe de SmartPlug
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new SmartPlug());  // Constructor fără parametri
-            sampleGadgets.add(new SmartPlug("SmartPlug Model " + i, "Brand SmartPlug", 2024,  50.0, 4.1, 100, "Priză inteligentă cu monitorizare", 100, true));  // Constructor cu parametri
-            sampleGadgets.add(new SmartPlug(new SmartPlug()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new SmartPlug("SmartPlug Model " + i, "Brand SmartPlug " + i, 2024 - i,  50.0 + i*10, 4.1 - i/10.0, 100 + 5*i, "Priză inteligentă cu monitorizare", 100, true));  // Constructor cu parametri
+
         }
 
         // Instanțe de VRGoggles
-        for (int i = 0; i < 10; i++) {
-            sampleGadgets.add(new VRGoggles());  // Constructor fără parametri
-            sampleGadgets.add(new VRGoggles("VRGoggles Model " + i, "Brand VRGoggles", 2024, 350.0, 4.6, 25, "Ochelari VR de înaltă calitate", 8, true));  // Constructor cu parametri
-            sampleGadgets.add(new VRGoggles(new VRGoggles()));  // Constructor de copiere
+        for (int i = 1; i <= 10; i++) {
+            sampleGadgets.add(new VRGoggles("VRGoggles Model " + i, "Brand VRGoggles " + i, 2024 - i, 350.0 + i*10, 4.6 - i/10.0, 25 + 5*i, "Ochelari VR de înaltă calitate", 8, true));  // Constructor cu parametri
+
         }
 
         // Salvăm gadgeturile generate în fișierul specificat

@@ -55,11 +55,10 @@ public class MiniCamera extends Gadget {
     }
     @Override
     public String toString() {
-        return "VRGoggles {" +
+        return "MiniCamera {" +
                 "Model='" + getModel() + '\'' +
                 ", Brand='" + getBrand() + '\'' +
                 ", Year=" + getYearOfManufacture() +
-                " =" + isOn() +
                 ", Price=" + getPrice() +
                 ", Rating=" + getRating() +
                 ", Stock=" + getStock() +

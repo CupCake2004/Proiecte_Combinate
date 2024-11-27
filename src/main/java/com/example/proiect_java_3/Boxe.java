@@ -45,16 +45,15 @@ public class Boxe extends Gadget {
     // Suprascrie metoda toString pentru afišarea detaliilor despre Boxe
     @Override
     public String toString() {
-        return "VRGoggles {" +
+        return "Boxe {" +
                 "Model='" + getModel() + '\'' +
                 ", Brand='" + getBrand() + '\'' +
                 ", Year=" + getYearOfManufacture() +
-                " =" + isOn() +
                 ", Price=" + getPrice() +
                 ", Rating=" + getRating() +
                 ", Stock=" + getStock() +
                 ", Description='" + getDescription() + '\'' +
-                ", FieldOfView=" + type +
+                ", Type=" + type +
                 ", Wireless=" + wireless +
                 '}';
     }

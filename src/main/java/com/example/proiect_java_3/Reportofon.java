@@ -44,11 +44,10 @@ public class Reportofon extends Gadget {
 
     @Override
     public String toString() {
-        return "VRGoggles {" +
+        return "Reportofon {" +
                 "Model='" + getModel() + '\'' +
                 ", Brand='" + getBrand() + '\'' +
                 ", Year=" + getYearOfManufacture() +
-                " =" + isOn() +
                 ", Price=" + getPrice() +
                 ", Rating=" + getRating() +
                 ", Stock=" + getStock() +
