@@ -14,7 +14,8 @@ public class Gadget implements Serializable {
     private double price;
     private double rating; // Rating între 1 și 5
     private int stock; // Stoc disponibil
-    private String description; // Descrierea gadgetului
+    private String description;
+    private String category;// Descrierea gadgetului
 
     // Constructor fără parametri
     public Gadget() {
@@ -26,11 +27,12 @@ public class Gadget implements Serializable {
         this.price = 0.0;
         this.rating = 0.0; // Rating implicit 0
         this.stock = 0; // Stoc implicit 0
-        this.description = "No description available"; // Descriere implicită
+        this.description = "No description available";
+        this.category = "Unknown";// Descriere implicită
     }
 
     // Constructor cu parametri
-    public Gadget(String model, String brand, int yearOfManufacture, double price, double rating, int stock, String description) {
+    public Gadget(String model, String brand, int yearOfManufacture, double price, double rating, int stock, String description,String category) {
         this.id = nextId++;
         this.model = model;
         this.brand = brand;
@@ -40,6 +42,7 @@ public class Gadget implements Serializable {
         this.rating = rating;
         this.stock = stock;
         this.description = description;
+        this.category = category;
     }
 
     // Constructor de copiere
@@ -53,6 +56,9 @@ public class Gadget implements Serializable {
         this.rating = other.rating;
         this.stock = other.stock;
         this.description = other.description;
+    }
+
+    public Gadget(String model, String brand, int year, double price, double rating, int stock, String description) {
     }
 
     // Metoda toString
@@ -134,5 +140,9 @@ public class Gadget implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory(String category) {
+        return category;
     }
 }
