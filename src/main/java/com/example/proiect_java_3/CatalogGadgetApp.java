@@ -641,11 +641,101 @@ public class CatalogGadgetApp extends Application {
         primaryStage.setScene(financesScene);
     }
 
+    private void searchByCategory() {
+        Stage searchByCategoryStage = new Stage();
+        searchByCategoryStage.setTitle("Căutare după categorie");
+
+        VBox searchLayout = new VBox(10);
+        searchLayout.setStyle("-fx-padding: 20;");
+
+        Label instructionLabel = new Label("Selectați categoria gadgetului:");
+        ComboBox<String> categoryComboBox = new ComboBox<>();
+        categoryComboBox.getItems().addAll(
+                "Boxe", "Căști", "Mini Cameră", "Portable Speakers",
+                "Reportofon", "Smart Alarm", "Smart Plug", "VR Goggles"
+        );
+
+        ListView<String> resultsList = new ListView<>();
+
+        Button searchButton = new Button("Caută");
+        searchButton.setOnAction(event -> {
+            String selectedCategory = categoryComboBox.getValue();
+            resultsList.getItems().clear();
+
+            if (selectedCategory != null) {
+                for (Gadget gadget : gadgeturi) {
+                    if (gadget.getClass().getSimpleName().equals(selectedCategory)) {
+                        resultsList.getItems().add(gadget.toString());
+                    }
+                }
+
+                if (resultsList.getItems().isEmpty()) {
+                    resultsList.getItems().add("Nu s-au găsit rezultate.");
+                }
+            } else {
+                resultsList.getItems().add("Selectați o categorie înainte de a căuta.");
+            }
+        });
+
+        searchLayout.getChildren().addAll(instructionLabel, categoryComboBox, searchButton, resultsList);
+
+        Scene searchScene = new Scene(searchLayout, 400, 300);
+        searchByCategoryStage.setScene(searchScene);
+        searchByCategoryStage.show();
+    }
     private void searchByName() {
-        System.out.println("Căutare după nume");
+        Stage searchByNameStage = new Stage();
+        searchByNameStage.setTitle("Căutare după nume");
+
+        VBox searchLayout = new VBox(10);
+        searchLayout.setStyle("-fx-padding: 20;");
+
+        Label instructionLabel = new Label("Introduceți numele gadgetului:");
+        TextField searchField = new TextField();
+        searchField.setPromptText("Nume gadget");
+
+        ListView<String> resultsList = new ListView<>();
+
+        Button searchButton = new Button("Caută");
+        searchButton.setOnAction(event -> {
+            String query = searchField.getText();
+
+            // Validare input gol
+            if (query == null || query.isBlank()) {
+                resultsList.getItems().clear();
+                resultsList.getItems().add("Introduceți un nume valid pentru căutare.");
+                return;
+            }
+
+            query = query.toLowerCase(); // Transformăm în litere mici pentru căutare insensibilă la majuscule
+            resultsList.getItems().clear();
+
+            boolean found = false;
+
+            for (Gadget gadget : gadgeturi) {
+                try {
+                    String model = gadget.getModel(); // Obținem modelul gadgetului
+                    if (model != null && model.toLowerCase().contains(query)) {
+                        resultsList.getItems().add(gadget.toString());
+                        found = true;
+                    }
+                } catch (Exception e) {
+                    // În cazul unei erori neașteptate, adăugăm un mesaj în listă
+                    resultsList.getItems().add("Eroare la procesarea unui gadget.");
+                }
+            }
+
+            // Dacă nu am găsit rezultate
+            if (!found) {
+                resultsList.getItems().add("Nu s-au găsit rezultate.");
+            }
+        });
+
+        searchLayout.getChildren().addAll(instructionLabel, searchField, searchButton, resultsList);
+
+        Scene searchScene = new Scene(searchLayout, 400, 300);
+        searchByNameStage.setScene(searchScene);
+        searchByNameStage.show();
     }
 
-    private void searchByCategory() {
-        System.out.println("Căutare după categorie");
-    }
 }
