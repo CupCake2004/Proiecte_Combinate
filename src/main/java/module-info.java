@@ -11,6 +11,11 @@ module com.example.proiect_java_3 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
+    requires org.jsoup;
+    requires org.json;  // Add this line
+
     opens com.example.proiect_java_3 to javafx.fxml;
     exports com.example.proiect_java_3;
+    exports com.example.scraper;
+    opens com.example.scraper to javafx.fxml;
 }
