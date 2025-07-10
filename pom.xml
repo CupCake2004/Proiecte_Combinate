@@ -115,6 +115,12 @@
             <version>20240205</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.20.0</version>
+        </dependency>
+
         <!-- JUnit 5 Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
